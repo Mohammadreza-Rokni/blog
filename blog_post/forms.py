@@ -3,7 +3,7 @@ from django.core.validators import ValidationError
 
 from blog_post.models import Massage
 
-
+# Create your forms
 class ContactUsForm(forms.Form):
     name = forms.CharField(max_length=50, label='Your name')
     text = forms.CharField(max_length=500, label='Your Massage')

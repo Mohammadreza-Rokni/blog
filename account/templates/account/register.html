@@ -34,7 +34,7 @@
 		<div class="container-login100" style="background-image: url('{% static "images/bg-01.jpg" %}');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form"  method="post">
-                    {% csrf_token %}
+                    {% csrf_token %} <!-- Generate csrf token -->
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -42,7 +42,7 @@
 					<span class="login100-form-title p-b-34 p-t-27">
 						Register
 					</span>
-                    {% if errors %}
+                    {% if errors %} <!-- check errors -->
                         {% for item in errors %}
                             <p class="text text-danger bg-white rounded mb-2">{{ item }}</p>
                         {% endfor %}

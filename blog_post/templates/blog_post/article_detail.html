@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- Import base.html  -->
 {% load static %}
 
 {% block title %}
@@ -43,7 +43,7 @@
                                         <ul class="post-info">
                                             <li><a href="#">{{ article.auther.get_full_name }}</a></li>
                                             <li><a href="#">{{ article.created }}</a></li>
-                                            <li><a href="#">10 Comments</a></li>
+                                            <li><a href="#">{{ article.comments.all.count }} Comments</a></li>
                                         </ul>
                                         <p>{{ article.body }}</p>
                                         <div class="post-options">

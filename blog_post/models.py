@@ -28,7 +28,7 @@ class Article(models.Model):
     slug = models.SlugField(blank=True, unique=True)
 
     class Meta:
-        ordering = ('-updated', '-created' )
+        ordering = ('-updated', '-created' ) # - : from last to first
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         self.slug = slugify(self.title)

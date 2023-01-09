@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} <!-- Import base.html  -->
 {% load static %}
 {% load widget_tweaks %}
 {% block title %}Contact Us{% endblock %}
@@ -17,11 +17,12 @@
                                     </div>
                                     <div class="content">
                                         <form id="contact" action="" method="post">
-                                        {% csrf_token %}
+                                        {% csrf_token %} <!-- Generate csrf token -->
                                             <div class="row">
                                                 <div class="col-md-6 col-sm-12">
                                                     <fieldset>
-                                                        {% if form.non_field_errors %}
+                                                        <!-- Check errors -->
+                                                        {% if form.non_field_errors %} 
                                                             <div class="alert alert-danger">{{ form.non_field_errors }}</div>
                                                         {% endif %}
                                                         {{ form }}

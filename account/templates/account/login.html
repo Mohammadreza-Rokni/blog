@@ -34,7 +34,7 @@
 		<div class="container-login100" style="background-image: url('{% static "images/bg-01.jpg" %}');">
 			<div class="wrap-login100">
 				<form class="login100-form validate-form"  method="post">
-                    {% csrf_token %}
+                    {% csrf_token %} <!-- Generate csrf token -->
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -42,7 +42,7 @@
 					<span class="login100-form-title p-b-34 p-t-27">
 						Log in
 					</span>
-                    <p>{{ form.errors }}</p>
+                    <p>{{ form.errors }}</p> <!-- display errors -->
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						{{ form.username }}
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>

@@ -8,9 +8,11 @@ from .forms import ContactUsForm , MassageForm
 from django.urls import reverse_lazy
 from .mixins import customLoginRequiredMixin
 
+# Create your view with def & class(class base view)
 
 def post_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
+    # Create new comment
     if request.method == 'POST':
         body = request.POST.get('body')
         parent_id = request.POST.get('parent_id')
@@ -19,7 +21,7 @@ def post_detail(request, slug):
 
 class ArticleDetailView(DetailView):
     model = Article
-
+    # Liked system
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.likes.filter(article__slug=self.object.slug, user_id=self.request.user.id).exists():
@@ -31,7 +33,7 @@ class ArticleDetailView(DetailView):
 def article_list(request):
     articles = Article.objects.all()
     page_number = request.GET.get('page')
-    paginator = Paginator(articles, 1)
+    paginator = Paginator(articles, 1) # Pagination
     objects_list = paginator.get_page(page_number)
     return render(request, 'blog_post/article_list.html', {'articles': objects_list})
 
@@ -40,7 +42,7 @@ def category_detail(request, pk=None):
     articles = category.articles.all()
     return render(request, 'blog_post/article_list.html', {'articles': articles})
 
-def search(request):
+def search(request): # Search article
     q = request.GET.get('q')
     articles = Article.objects.filter(title__icontains=q)
     page_number = request.GET.get('page')
@@ -88,7 +90,7 @@ class MaasageView(CreateView):
         instance.save()
         return super().form_valid(form)
 
-
+# Generate AJAX system for like
 def like(request, slug, pk):
     try:
         like = Like.objects.get(article__slug=slug, user_id=request.user.id)
