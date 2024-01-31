@@ -48,6 +48,8 @@ def search(request): # Search article
     page_number = request.GET.get('page')
     paginator = Paginator(articles, 1)
     objects_list = paginator.get_page(page_number)
+    if not objects_list:
+        return render(request, '404/404_search.html')
     return render(request, 'blog_post/article_list.html', {'articles': objects_list})
 
 

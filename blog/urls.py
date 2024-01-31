@@ -25,3 +25,5 @@ urlpatterns = [
     path('articles/', include('blog_post.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
+handler404 = 'home.views.custom_404'
+

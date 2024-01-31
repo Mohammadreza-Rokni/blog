@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page 404</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+ 
+            color: #333;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            font-size: 49px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 23px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f48840;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <br>
+    <br>
+
+    <h1> 404 </h1>
+
+    <p>Unfortunately, the page is not found, please return to the Homepage.</p>
+
+
+        <a href="{% url 'home:home' %}">
+            Return to Homepage
+        </a> 
+
+</body>
+</html>
